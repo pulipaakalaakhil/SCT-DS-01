@@ -1,0 +1,25 @@
+import matplotlib.pyplot as plt
+
+# Data from the chart
+age_groups = ['0–20 Years', '21–64 Years', '65+ Years']
+population_mn = [512, 807, 98]
+colors = ['#FFD700', '#00BFFF', '#FF1493']  # yellow, blue, pink
+
+# Plotting the bar chart
+plt.figure(figsize=(10, 6))
+bars = plt.bar(age_groups, population_mn, color=colors, width=0.6)
+
+# Annotate with values
+for bar, value in zip(bars, population_mn):
+    plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 10,
+             f'{value} Mn', ha='center', va='bottom', fontsize=12, fontweight='bold')
+
+# Title and labels
+plt.title("India's Population Distribution by Age in 2022", fontsize=16, fontweight='bold')
+plt.xlabel("Age Groups", fontsize=12)
+plt.ylabel("Population (in Millions)", fontsize=12)
+plt.grid(axis='y', linestyle='--', alpha=0.5)
+
+# Show chart
+plt.tight_layout()
+plt.show()
